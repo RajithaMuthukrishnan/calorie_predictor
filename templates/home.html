@@ -1,0 +1,111 @@
+<html>
+   <style>
+   #wrapper
+   {
+      text-align:left;
+      font-size: 20px;
+      color: midnightblue;
+      /* margin:0 auto; */
+      padding:10px;
+      width:995px;
+   }
+   #details
+   {
+      text-align:left;
+      font-size: 20px;
+      padding:10px;
+      color:cornflowerblue;
+      /* margin:0 auto; */
+   }
+   #result
+   {
+      text-align:left;
+      font-size: 20px;
+      color: cadetblue;
+      /* margin:0 auto; */
+      padding:10px;
+      width:995px;
+   }
+   </style>
+
+   <!-- <script>
+      function showDetails() {
+         // var gender = document.getElementById("gender").value;
+         // var age = document.getElementById("age").value;
+         // var height = document.getElementById("height").value;
+         // var weight = document.getElementById("weight").value;
+         // var duration = document.getElementById("duration").value;
+         // var heartrate = document.getElementById("heartRate").value;
+
+         document.getElementById('gender_val').innerHTML = document.getElementById("gender").value;
+      }
+   </script> -->
+
+   <body>
+      <h1 style = "color:darkslategrey; font-size:50px;"> Predict Calories </h1>
+      <form action = "http://localhost:5000/predict" method = "POST" 
+         enctype = "multipart/form-data">
+         <div id="wrapper">
+            Gender:
+            <select name = "Gender" onchange= "gender_text(event)" id="gender" style="font-size:15">
+               <option value="male">Male</option>
+               <option value="female">Female</option>
+            </select>
+         </div>
+         <div id="wrapper">
+            Age:
+            <input type = "text" name = "Age" onchange= "age_text(event)" id="age" style="width:5em;"/>
+         </div>
+         <div id="wrapper">
+            Height:
+            <input type = "text" name = "Height" onchange= "height_text(event)" id="height" style="width:5em;"/>
+            <select name = "heightUnit" id = "heightunit" style="font-size:15">
+               <option value="cm">Centimeters</option>
+               <option value="ft">Feet</option>
+            </select>
+         </div>
+         <div id="wrapper">
+            Weight:
+            <input type = "text" name = "Weight" onchange= "weight_text(event)" id="weight" style="width:5em;"/>
+            <select name = "weightUnit" id = "weightunit" style="font-size:15">
+               <option value="kg">Kilograms</option>
+               <option value="lb">Pounds</option>
+            </select>
+         </div>
+         <div id="wrapper">
+            Duration:
+            <input type = "text" name = "Duration" onchange= "duration_text(event)" id="duration" style="width:5em;"/>
+            <select name = "durationUnit" id = "durationunit" style="font-size:15">
+               <option value="min">Minutes</option>
+               <option value="hr">Hours</option>
+            </select>
+         </div>
+         <div id="wrapper">
+            Heart Rate (bpm):
+            <input type = "text" name = "Heart Rate" onchange= "heartRate_text(event)" id="heartRate" style="width:5em;"/>
+         </div>
+         <br>
+            <input type = "submit" onclick="showDetails()" value="submit" style="font-size:20px; width:10em; height:10em; color:seagreen;"/>
+      </form>
+    <br>
+    <br>
+    </div>
+    <!-- <p><span id = "gender_val"></span> </p>  -->
+    <div id="details">
+      {{gender}}
+      <br>
+      {{age}}
+      <br>
+      {{height}}
+      <br>
+      {{weight}}
+      <br>
+      {{duration}}
+      <br>
+      {{heartrate}}
+    </div>
+    <div id="result">
+      {{pred}}
+   </div>
+   </body>
+</html>
