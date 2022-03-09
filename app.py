@@ -3,7 +3,6 @@ from werkzeug.utils import secure_filename
 import os
 import pandas as pd
 from PIL import Image
-import cv2
 import keras
 import pickle
 import numpy as np
