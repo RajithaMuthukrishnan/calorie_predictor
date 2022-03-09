@@ -1,173 +1,178 @@
 <!DOCTYPE html>
 <html>
-
   <style>
-  body {
-   font-family: "Brush Script MT", cursive;
-   background-color: black;
-   }
+    body {
+      background-color: black;
+    }
    
-  .header {
-  background-color: rgb(192,192,192); /* Fallback color */
-  color: black;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 90%;
-  padding: 10px;
-  text-align: center;
+    .header {
+      background-color: rgb(192,192,192); 
+      transform: translate(-50%, -50%);
+      border: 3px solid #f1f1f1;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      width: 90%;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: black;
     }
 
-  /* Increase the font size of the <h1> element */
-  .header h1 {
-  font-size: 50px;
-     }
-	
-  form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    /* Increase the font size of the <h1> element */
+    .header h1 {
+      font-family: "Brush Script MT"; 
+      font-size: 60px;
     }
- 
-   .form.contents>* {
-        width: 5%;
-   }
 	
-   .text {
-  overflow: hidden;
-  position: absolute;
-  font-weight: bold;
-  z-index: 2;
-  top:110px;
-  font-size:15px;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 15px;  
-  top: 100%;
-  left: 50%;
-  display: inline-block;
-  transform: translate(-50%, -50%);
-   }
-   
-  input[type=text], select, textarea {
-  width: 115%;
-  padding: 12px;
-  font-weight: bold;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+    .text {
+      background-color: #f2f2f2;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      position: absolute;
+      padding: 20px; 
+      top: 500px;
+      left: 50%; 
+      margin-top: 120px;
+      width: 700px;
+      height: 650px;
+      text-align: left;
+      font-weight: bold;
+      font-size: 20px;
     }
 
-	
-  button.submit {
-  background-color: black;
-  font-family: "Brush Script MT", cursive;
-  font-size:20px;
-  font-weight: bold;
-  color: white;
-  padding: 14px 20px;
-  margin: 0;
-  cursor: pointer;
-  width: 40%;
-  }
+    label {
+      display: inline-block;
+      margin-left: 160px;
+    }
+   
+    input[type=text], select, textarea {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      width: 155px;
+      height: 18px;
+      padding: 18px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+
+    input[type=submit] {
+      background-color: black;
+      padding: 10px 60px;
+      margin-top: 3%;
+      margin-left: 130px;
+      cursor: pointer;
+      width: 30%;
+      font-size:20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    input[type=reset] {
+      background-color: black;
+      padding: 10px 60px;
+      margin-top: 3%;
+      cursor: pointer;
+      width: 30%;
+      font-size:20px;
+      font-weight: bold;
+      color: white;
+    }
   
-  
-  
-   button:hover {
-  opacity: 0.6;
-  }
-	
+    #detailsDiv {
+      margin-top: 30px;
+      font-weight:500;
+      opacity: 1;
+      font-family: sans-serif;
+      font-size: 20px; 
+      font-style: italic;
+    } 
+
+    #detail {
+      margin-top: 10px;
+      text-align: center;
+    } 
+
+    #result {
+      margin-top: 20px;
+      color: rgb(98, 105, 65);
+      text-align: center;
+      text-align: left;
+      font-weight:bold;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+      font-style: italic;
+      font-size: 20px; 
+    }	
   </style>
-  
-  <script>
-      function printDiv() {
-         gender = document.getElementById("gender").innerHTML=feedback.lname.value;
-      }
-   </script>
 
   <head>
-    <title>Calarie Prediction App</title>
+    <title>Calories Prediction</title>
   </head>
   
   <body>
-  
-  <div class="container">
     <div class="header">
-		<h1>Calorie Prediction </h1>
-
-	</div>
-	<div class="text">
-    <form action = "http://localhost:5000/predict" method = "POST" 
-         enctype = "multipart/form-data">
-		
-
-		<div>
-		<label for="Gender">Gender:</label>
-		<select name = "Gender" onchange= "gender_text(event)" id="gender" style="font-size:15">
-               <option value="male">Male</option>
-               <option value="female">Female</option>
-        </select>
-		</div>
-		<br>
-		
-		<div>
-		<label for="Age">Age:</label>
-        <input type = "text" name = "Age" onchange= "age_text(event)" id="age"/>
-		</div>
-		<br>
-		
-		<div>
-		<label for="Height">Height:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type = "text" name = "Height" onchange= "height_text(event)" id="height" style="width:30em;"/>
-            <select name = "heightUnit" id = "heightunit" style="font-size:15;  width: 60%;">
-               <option value="cm">Centimeters</option>
-               <option value="ft">Feet</option>
-            </select>
-		</div>
-		<br>
-		
-		<div>
-		<label for="Weight">Weight:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type = "text" name = "Weight" onchange= "weight_text(event)" id="weight" style="width:30em;"/>
-            <select name = "weightUnit" id = "weightunit" style="font-size:15; width: 60%;">
-               <option value="kg">Kilograms</option>
-               <option value="lb">Pounds</option>
-            </select>
-		</div>
-		<br>
-		
-		<div>
-		<label for="Duration">Duration:&nbsp;&nbsp;&nbsp;</label>
-            <input type = "text" name = "Duration" onchange= "duration_text(event)" id="duration" style="width:30em;"/>
-            <select name = "durationUnit" id = "durationunit" style="font-size:15;  width: 60%;">
-               <option value="min">Minutes</option>
-               <option value="hr">Hours</option>
-            </select>
-		</div>
-		<br>
-		
-		<div>
-		<label for="HeartRate(bpm)">Heart-Rate(bpm):</label>
-            <input type = "text" name = "Heart Rate" onchange= "heartRate_text(event)" id="heartRate" style="width:30em;"/>
-		</div>
-        
-         <br>
-            
-		<button class="submit" type="submit">Submit</button>
-	  
-    </form>  
+		  <h1>Calories Prediction </h1>
     </div>
-  </div>
-  <div id="result">
-      {{pred}}
-   </div>
   
+    <form action = "http://localhost:5000/predict" method = "POST" enctype = "multipart/form-data">
+      <div class="text">
+        <label for="Gender">Gender:</label>
+		    <select name = "Gender" id="gender" style="height: 25px; font-size: 18px;">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+		    <br>
+		
+        <label for="Age">Age:&nbsp;</label>
+        <input type="text" name="Age" id="age"/>
+		    <br>
+		
+        <label for="Height">Height:&nbsp;</label>
+        <input type = "text" name = "Height" id="height"/>
+        <select name = "heightUnit" id = "heightunit" style="height: 25px; font-size: 18px;">
+          <option value="cm">Centimeters</option>
+          <option value="ft">Feet</option>
+        </select>
+		    <br>
+		
+        <label for="Weight">Weight:&nbsp;</label>
+        <input type = "text" name = "Weight" id="weight"/>
+        <select name = "weightUnit" id = "weightunit" style="height: 25px; font-size: 18px;">
+          <option value="kg">Kilograms</option>
+          <option value="lb">Pounds</option>
+        </select>
+		    <br>
+		
+        <label for="Duration">Duration:&nbsp;</label>
+        <input type = "text" name = "Duration" id="duration"/>
+        <select name = "durationUnit" id = "durationunit" style="height: 25px; font-size: 18px;">
+            <option value="min">Minutes</option>
+            <option value="hr">Hours</option>
+        </select>
+        <br>
+		
+        <label for="HeartRate (bpm)">Heart-Rate(bpm):&nbsp;</label>
+        <input type = "text" name = "Heart Rate" id="heartRate"/>    
+        <br>
+            
+        <input type='submit' value="Submit">
+        <input type='reset' value="Reset" onclick="document.getElementById('detailsDiv').style.opacity=0">
+        <br>
+
+        <div id = "detailsDiv">
+          <div id = "detail">{{gender}}</div>
+          <div id = "detail">{{age}}</div>
+          <div id = "detail">{{height}}</div>
+          <div id = "detail">{{weight}}</div>
+          <div id = "detail">{{duration}}</div>
+          <div id = "detail">{{heartrate}}</div>
+          <div id = "result">
+            {{pred}}
+          </div>
+        </div>
+      </div>
+    </form>  
   </body>
 </html> 
