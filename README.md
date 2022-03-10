@@ -1,4 +1,4 @@
-Calories Predictor
+**Calories Predictor**
 
 An application to predict the calories burned using inputs - Gender, Age, Height, Weight, Duraion and Heart rate (beats per minute). 
 Multiple Machine and Deep Learning models were designed and the best performing model is used to predict the calories burned.
@@ -13,4 +13,4 @@ Note :
 2. calorie_cal_run.py will install packages. Execute the script in virtual environment if required. 
 
 
-**Execution command** : python caloie_cal_run.py 
+_Execution command_: python caloie_cal_run.py 
