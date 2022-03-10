@@ -13,4 +13,4 @@ Note :
 2. calorie_cal_run.py will install packages. Execute the script in virtual environment if required. 
 
 
-_Execution command_: python caloie_cal_run.py 
+_Execution command_: python calorie_cal_run.py 
