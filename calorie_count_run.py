@@ -9,3 +9,6 @@ os.system('pip install -r requirements.txt')
 # Host and launch the application
 os.system('python app.py')
 webbrowser.open('http://127.0.0.1:5000/')
+
+
+
