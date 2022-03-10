@@ -39,23 +39,35 @@
       text-align: left;
       font-weight: bold;
       font-size: 20px;
+	 
+
     }
 
     label {
       display: inline-block;
       margin-left: 160px;
+	  vertical-align: middle;
+	  
     }
    
     input[type=text], select, textarea {
+
       border: 1px solid #ccc;
       border-radius: 4px;
       box-sizing: border-box;
       width: 155px;
-      height: 18px;
-      padding: 18px;
+      height: 33px;
+      # padding: 12px;
       margin-top: 5px;
       margin-bottom: 5px;
       font-size: 20px;
+	  
+	  # font-weight: bold;
+	  display: inline;
+      vertical-align: center;
+	  margin-right:10px;
+	  
+	  
     }
 
     input[type=submit] {
@@ -89,7 +101,7 @@
       font-size: 20px; 
       font-style: italic;
     } 
-
+	
     #detail {
       margin-top: 10px;
       text-align: center;
@@ -99,7 +111,6 @@
       margin-top: 20px;
       color: rgb(98, 105, 65);
       text-align: center;
-      text-align: left;
       font-weight:bold;
       font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
       font-style: italic;
@@ -118,43 +129,44 @@
   
     <form action = "http://localhost:5000/predict" method = "POST" enctype = "multipart/form-data">
       <div class="text">
-        <label for="Gender">Gender:</label>
-		    <select name = "Gender" id="gender" style="height: 25px; font-size: 18px;">
+        <label for="Gender">Gender &emsp;&emsp;&emsp;&emsp; :</label>
+		    <select name = "Gender" id="gender"  style="height: 25px; font-size: 18px;" required>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
+        </select>
 		    <br>
 		
-        <label for="Age">Age:&nbsp;</label>
-        <input type="text" name="Age" id="age"/>
+        <label for="Age">Age &emsp;&emsp;&emsp;&emsp;&emsp;&ensp; :</label>
+        <input type="text" name="Age" id="age" required>
 		    <br>
 		
-        <label for="Height">Height:&nbsp;</label>
-        <input type = "text" name = "Height" id="height"/>
-        <select name = "heightUnit" id = "heightunit" style="height: 25px; font-size: 18px;">
+        <label for="Height">Height &emsp;&emsp;&emsp;&ensp;&ensp;&nbsp; :</label>
+        <input type = "text" name = "Height" id="height" required>
+        <select name = "heightUnit" id = "heightunit"  style="height: 25px; font-size: 18px;" >
           <option value="cm">Centimeters</option>
           <option value="ft">Feet</option>
         </select>
 		    <br>
 		
-        <label for="Weight">Weight:&nbsp;</label>
-        <input type = "text" name = "Weight" id="weight"/>
-        <select name = "weightUnit" id = "weightunit" style="height: 25px; font-size: 18px;">
+        <label for="Weight">Weight &emsp;&emsp;&emsp;&ensp;&ensp; :</label>
+        <input type = "text" name = "Weight" id="weight" required>
+        <select name = "weightUnit" id = "weightunit"  style="height: 25px; font-size: 18px; " >
           <option value="kg">Kilograms</option>
           <option value="lb">Pounds</option>
         </select>
 		    <br>
 		
-        <label for="Duration">Duration:&nbsp;</label>
-        <input type = "text" name = "Duration" id="duration"/>
-        <select name = "durationUnit" id = "durationunit" style="height: 25px; font-size: 18px;">
+        <label for="Duration">Duration &emsp;&emsp;&emsp;&nbsp; :</label>
+        <input type = "text" name = "Duration" id="duration" required>
+        <select name = "durationUnit" id = "durationunit" style="height: 25px; font-size: 18px; " >
             <option value="min">Minutes</option>
             <option value="hr">Hours</option>
         </select>
         <br>
 		
-        <label for="HeartRate (bpm)">Heart-Rate(bpm):&nbsp;</label>
-        <input type = "text" name = "Heart Rate" id="heartRate"/>    
+        <label for="HeartRate (bpm)">Heart-Rate(bpm) :</label>
+        <input type = "text" name = "Heart Rate"  id="heartRate" required>    
         <br>
             
         <input type='submit' value="Submit">
@@ -168,9 +180,7 @@
           <div id = "detail">{{weight}}</div>
           <div id = "detail">{{duration}}</div>
           <div id = "detail">{{heartrate}}</div>
-          <div id = "result">
-            {{pred}}
-          </div>
+          <div id = "result">{{pred}}</div>
         </div>
       </div>
     </form>  
