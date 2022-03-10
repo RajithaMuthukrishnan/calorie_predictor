@@ -1,111 +1,186 @@
+<!DOCTYPE html>
 <html>
-   <style>
-   #wrapper
-   {
-      text-align:left;
-      font-size: 20px;
-      color: midnightblue;
-      /* margin:0 auto; */
-      padding:10px;
-      width:995px;
-   }
-   #details
-   {
-      text-align:left;
-      font-size: 20px;
-      padding:10px;
-      color:cornflowerblue;
-      /* margin:0 auto; */
-   }
-   #result
-   {
-      text-align:left;
-      font-size: 20px;
-      color: cadetblue;
-      /* margin:0 auto; */
-      padding:10px;
-      width:995px;
-   }
-   </style>
+  <style>
+    body {
+      background-color: black;
+    }
+   
+    .header {
+      background-color: rgb(192,192,192); 
+      transform: translate(-50%, -50%);
+      border: 3px solid #f1f1f1;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      width: 90%;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: black;
+    }
 
-   <!-- <script>
-      function showDetails() {
-         // var gender = document.getElementById("gender").value;
-         // var age = document.getElementById("age").value;
-         // var height = document.getElementById("height").value;
-         // var weight = document.getElementById("weight").value;
-         // var duration = document.getElementById("duration").value;
-         // var heartrate = document.getElementById("heartRate").value;
+    /* Increase the font size of the <h1> element */
+    .header h1 {
+      font-family: "Brush Script MT"; 
+      font-size: 60px;
+    }
+	
+    .text {
+      background-color: #f2f2f2;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      position: absolute;
+      padding: 20px; 
+      top: 500px;
+      left: 50%; 
+      margin-top: 120px;
+      width: 700px;
+      height: 650px;
+      text-align: left;
+      font-weight: bold;
+      font-size: 20px;
+	 
 
-         document.getElementById('gender_val').innerHTML = document.getElementById("gender").value;
-      }
-   </script> -->
+    }
 
-   <body>
-      <h1 style = "color:darkslategrey; font-size:50px;"> Predict Calories </h1>
-      <form action = "http://localhost:5000/predict" method = "POST" 
-         enctype = "multipart/form-data">
-         <div id="wrapper">
-            Gender:
-            <select name = "Gender" onchange= "gender_text(event)" id="gender" style="font-size:15">
-               <option value="male">Male</option>
-               <option value="female">Female</option>
-            </select>
-         </div>
-         <div id="wrapper">
-            Age:
-            <input type = "text" name = "Age" onchange= "age_text(event)" id="age" style="width:5em;"/>
-         </div>
-         <div id="wrapper">
-            Height:
-            <input type = "text" name = "Height" onchange= "height_text(event)" id="height" style="width:5em;"/>
-            <select name = "heightUnit" id = "heightunit" style="font-size:15">
-               <option value="cm">Centimeters</option>
-               <option value="ft">Feet</option>
-            </select>
-         </div>
-         <div id="wrapper">
-            Weight:
-            <input type = "text" name = "Weight" onchange= "weight_text(event)" id="weight" style="width:5em;"/>
-            <select name = "weightUnit" id = "weightunit" style="font-size:15">
-               <option value="kg">Kilograms</option>
-               <option value="lb">Pounds</option>
-            </select>
-         </div>
-         <div id="wrapper">
-            Duration:
-            <input type = "text" name = "Duration" onchange= "duration_text(event)" id="duration" style="width:5em;"/>
-            <select name = "durationUnit" id = "durationunit" style="font-size:15">
-               <option value="min">Minutes</option>
-               <option value="hr">Hours</option>
-            </select>
-         </div>
-         <div id="wrapper">
-            Heart Rate (bpm):
-            <input type = "text" name = "Heart Rate" onchange= "heartRate_text(event)" id="heartRate" style="width:5em;"/>
-         </div>
-         <br>
-            <input type = "submit" onclick="showDetails()" value="submit" style="font-size:20px; width:10em; height:10em; color:seagreen;"/>
-      </form>
-    <br>
-    <br>
+    label {
+      display: inline-block;
+      margin-left: 160px;
+	  vertical-align: middle;
+	  
+    }
+   
+    input[type=text], select, textarea {
+
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      width: 155px;
+      height: 33px;
+      # padding: 12px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 20px;
+	  
+	    # font-weight: bold;
+	    display: inline;
+      vertical-align: center;
+	    margin-right:10px;
+    }
+
+    input[type=submit] {
+      background-color: black;
+      padding: 10px 60px;
+      margin-top: 3%;
+      margin-left: 130px;
+      cursor: pointer;
+      width: 30%;
+      font-size:20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    input[type=reset] {
+      background-color: black;
+      padding: 10px 60px;
+      margin-top: 3%;
+      cursor: pointer;
+      width: 30%;
+      font-size:20px;
+      font-weight: bold;
+      color: white;
+    }
+  
+    #detailsDiv {
+      margin-top: 30px;
+      font-weight:500;
+      opacity: 1;
+      font-family: sans-serif;
+      font-size: 20px; 
+      font-style: italic;
+    } 
+	
+    #detail {
+      margin-top: 10px;
+      text-align: center;
+    } 
+
+    #result {
+      margin-top: 20px;
+      color: rgb(98, 105, 65);
+      text-align: center;
+      font-weight:bold;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+      font-style: italic;
+      font-size: 20px; 
+    }	
+  </style>
+
+  <head>
+    <title>Calories Prediction</title>
+  </head>
+  
+  <body>
+    <div class="header">
+		  <h1>Calories Prediction </h1>
     </div>
-    <!-- <p><span id = "gender_val"></span> </p>  -->
-    <div id="details">
-      {{gender}}
-      <br>
-      {{age}}
-      <br>
-      {{height}}
-      <br>
-      {{weight}}
-      <br>
-      {{duration}}
-      <br>
-      {{heartrate}}
-    </div>
-    <div id="result">
-      {{pred}}
-   </div>
-   </body>
-</html>
+  
+    <form action = "http://localhost:5000/predict" method = "POST" enctype = "multipart/form-data">
+      <div class="text">
+        <label for="Gender">Gender &emsp;&emsp;&emsp;&emsp; :</label>
+		    <select name = "Gender" id="gender"  style="height: 25px; font-size: 18px;" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        </select>
+		    <br>
+		
+        <label for="Age">Age &emsp;&emsp;&emsp;&emsp;&emsp;&ensp; :</label>
+        <input type="text" name="Age" id="age" required>
+		    <br>
+		
+        <label for="Height">Height &emsp;&emsp;&emsp;&ensp;&ensp;&nbsp; :</label>
+        <input type = "text" name = "Height" id="height" required>
+        <select name = "heightUnit" id = "heightunit"  style="height: 25px; font-size: 18px;" >
+          <option value="cm">Centimeters</option>
+          <option value="ft">Feet</option>
+        </select>
+		    <br>
+		
+        <label for="Weight">Weight &emsp;&emsp;&emsp;&ensp;&ensp; :</label>
+        <input type = "text" name = "Weight" id="weight" required>
+        <select name = "weightUnit" id = "weightunit"  style="height: 25px; font-size: 18px; " >
+          <option value="kg">Kilograms</option>
+          <option value="lb">Pounds</option>
+        </select>
+		    <br>
+		
+        <label for="Duration">Duration &emsp;&emsp;&emsp;&nbsp; :</label>
+        <input type = "text" name = "Duration" id="duration" required>
+        <select name = "durationUnit" id = "durationunit" style="height: 25px; font-size: 18px; " >
+            <option value="min">Minutes</option>
+            <option value="hr">Hours</option>
+        </select>
+        <br>
+		
+        <label for="HeartRate (bpm)">Heart-Rate(bpm) :</label>
+        <input type = "text" name = "Heart Rate"  id="heartRate" required>    
+        <br>
+            
+        <input type='submit' value="Submit">
+        <input type='reset' value="Reset" onclick="document.getElementById('detailsDiv').style.opacity=0">
+        <br>
+
+        <div id = "detailsDiv">
+          <div id = "detail">{{gender}}</div>
+          <div id = "detail">{{age}}</div>
+          <div id = "detail">{{height}}</div>
+          <div id = "detail">{{weight}}</div>
+          <div id = "detail">{{duration}}</div>
+          <div id = "detail">{{heartrate}}</div>
+          <div id = "result">{{pred}}</div>
+        </div>
+      </div>
+    </form>  
+  </body>
+</html> 
