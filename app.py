@@ -2,10 +2,6 @@
 from flask import Flask,request, url_for, redirect, render_template
 from werkzeug.utils import secure_filename
 import pandas as pd
-<<<<<<< HEAD
-from PIL import Image
-=======
->>>>>>> 46ac82d609facbd7ce024b22ec72aa37f5b9be8d
 import keras
 import pickle
 import numpy as np
