@@ -1,5 +1,6 @@
+# Script to run application - Bhargavi Kallam
+
 import os
-import subprocess
 import webbrowser
 import time
 from threading import Thread
