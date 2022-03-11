@@ -1,4 +1,4 @@
-# Script to run application - Bhargavi Kat llam
+# Script to run application - Bhargavi Kallam
 
 import os
 import webbrowser
@@ -15,7 +15,7 @@ def serve_command():
     os.system('python app.py')
 program = Thread(target=serve_command)
 program.start()
-time.sleep(5)
+time.sleep(15)
 
 webbrowser.get().open('http://localhost:5000/')
 
