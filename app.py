@@ -7,6 +7,7 @@ import pandas as pd
 import keras
 import pickle
 import numpy as np
+from sklearn.preprocessing import PolynomialFeatures
 
 app = Flask(__name__)
 
@@ -63,15 +64,15 @@ def predict():
         duration_feature = float(duration)
     if duration_unit == 'hr':
         duration_feature = (float(duration) * 60)
-
+    
     # Create a feature array
     features = np.array([gender_feature, age_feature, height_feature, weight_feature, duration_feature, heart_rate])
-    # Convert feature array to pandas dataframe
-    data_unseen = pd.DataFrame([features], columns = cols)
-    # Reassure the type of features
-    data = data_unseen.astype({'Gender':'int64','Age':'int64','Height':'float64','Weight':'float64','Duration':'float64','Heart_Rate':'float64'})
+    # Define model for feature conversion
+    poly = PolynomialFeatures(degree=4)
+    # Convert features into polynomial features
+    features_poly = poly.fit_transform(features.reshape(1,-1))
     # Use the ML model to predict the calories using the features
-    prediction = model.predict(data)
+    prediction = model.predict(features_poly)
     # Obtain the predicted value and round the value to 0 decimal points
     result = round(prediction[0])
     # Send the input data obtained and calories predicted to the home.html file

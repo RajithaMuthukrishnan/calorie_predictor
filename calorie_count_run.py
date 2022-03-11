@@ -1,4 +1,4 @@
-# Script to run application - Bhargavi Kallam
+# Script to run application - Bhargavi Kat llam
 
 import os
 import webbrowser
