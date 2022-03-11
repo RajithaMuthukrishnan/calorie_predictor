@@ -1,0 +1,7 @@
+									DECLARATION
+
+
+
+The dataset used for the Machine Learning model training is from Kaggle  -https://www.kaggle.com/fmendes/fmendesdat263xdemos?select=calories.csv
+
+The models' design, webpage, and application creation are based on our (Bhargavi Kallam and Rajitha Muthukrishnan) work. We affirm that the development is an outcome of our experimentation.
