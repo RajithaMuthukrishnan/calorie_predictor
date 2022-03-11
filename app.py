@@ -1,3 +1,5 @@
+# Model integration - Rajitha Muthukrishnan
+
 # Import the neccesary packages
 from flask import Flask,request, url_for, redirect, render_template
 from werkzeug.utils import secure_filename
