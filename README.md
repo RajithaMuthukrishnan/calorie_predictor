@@ -3,7 +3,20 @@
 An application to predict the calories burned using inputs - Gender, Age, Height, Weight, Duraion and Heart rate (beats per minute). 
 Multiple Machine and Deep Learning models were designed and the best performing model is used to predict the calories burned.
 
-Python 3.8.12 - https://www.python.org/downloads/release/python-3812/
+_Prerequisite_ :
+1. Python 3.8.12 - https://www.python.org/downloads/release/python-3812/
+2. Web browser
+
+_Packages_ (Automatically installed by script):
+1. Flask
+2. Tensorflow
+3. Keras
+4. Numpy
+5. Pandas
+6. Werkzeug
+7. Scikit-learn
+8. Matplotlib
+9. xgboost
 
 _Files description_ :
 - data/calories.csv, data/exercise.csv - Dataset files used for models training. From https://www.kaggle.com/fmendes/fmendesdat263xdemos
