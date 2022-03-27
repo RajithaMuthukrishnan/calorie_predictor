@@ -1,6 +1,6 @@
 **Calories Predictor**
 
-An application to predict the calories burned using inputs - Gender, Age, Height, Weight, Duraion and Heart rate (beats per minute). 
+An application to predict the calories burned using inputs - Gender, Age, Height, Weight, Duration and Heart rate (beats per minute). 
 Multiple Machine and Deep Learning models were designed and the best performing model is used to predict the calories burned.
 
 _Prerequisite_ :
